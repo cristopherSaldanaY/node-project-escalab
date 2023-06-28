@@ -1,0 +1,11 @@
+{
+  "name": "node-project-course",
+  "version": "1.0.0",
+  "description": "proyecto del curso node con typeScript y arq hexagonal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristopher Saldana",
+  "license": "ISC"
+}
