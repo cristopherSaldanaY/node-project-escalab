@@ -9,10 +9,10 @@ interface CourseDTO {
 	guid: string
 }
 
-export type CourseInsertOneDTO = CourseDTO
+export type CourseDeleteDTO = CourseDTO
 
-export class CourseInsertMapping extends DTO<CourseProperties, CourseInsertOneDTO> {
-	execute(data: CourseProperties): CourseInsertOneDTO {
+export class CourseDeleteMapping extends DTO<CourseProperties, CourseDeleteDTO> {
+	execute(data: CourseProperties): CourseDeleteDTO {
 		return {
 			name: data.name,
 			description: data.description,

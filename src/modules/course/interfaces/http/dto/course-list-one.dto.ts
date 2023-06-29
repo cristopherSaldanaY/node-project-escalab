@@ -1,22 +1,22 @@
 import { CourseProperties } from '../../../domain/course'
 import { DTO } from './dto.generic'
 
-interface CourseDTO {
+interface CourseOneDTO {
 	name: string
 	description: string
-	difficulty: string
+	difficult: string
 	technology: string
 	guid: string
 }
 
-export type CourseInsertOneDTO = CourseDTO
+export type CourseListOneDTO = CourseOneDTO
 
-export class CourseInsertMapping extends DTO<CourseProperties, CourseInsertOneDTO> {
-	execute(data: CourseProperties): CourseInsertOneDTO {
+export class CourseListOneMapping extends DTO<CourseProperties, CourseListOneDTO> {
+	execute(data: CourseProperties): CourseListOneDTO {
 		return {
 			name: data.name,
 			description: data.description,
-			difficulty: data.difficulty,
+			difficult: data.difficulty,
 			technology: data.technology,
 			guid: data.guid,
 		}
