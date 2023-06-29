@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
 import routerHealth from './helpers/health'
 import HandlerErrors from './helpers/errors'
+import routeCourse from './modules/course/interfaces/http/course.routes'
 
 class App {
 	readonly expressApp: Application
@@ -9,6 +10,7 @@ class App {
 		this.expressApp = express()
 		this.mountHealthCheck()
 		this.mountMiddlewares()
+		this.mountRoutes()
 		this.mountErrors()
 
 	}
@@ -21,6 +23,10 @@ class App {
       this.expressApp.use(express.json())
       this.expressApp.use(express.urlencoded({ extended: true }))
    }
+
+	mountRoutes(): void {
+		this.expressApp.use('/course', routeCourse)
+	}
 
 	mountErrors(): void {
 		this.expressApp.use(HandlerErrors.notFound)
