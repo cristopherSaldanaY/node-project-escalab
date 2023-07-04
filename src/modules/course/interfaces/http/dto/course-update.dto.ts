@@ -1,15 +1,6 @@
-import { CourseProperties } from '../../../domain/course'
+import { CourseProperties } from 'src/modules/course/domain/types/courseProperties.type'
 import { DTO } from './dto.generic'
-
-interface CourseDTO {
-	name: string
-	description: string
-	difficulty: string
-	technology: string
-	guid: string
-}
-
-export type CourseUpdateDTO = CourseDTO
+import { CourseUpdateDTO } from './types/courseUpdate.type'
 
 export class CourseUpdateMapping extends DTO<CourseProperties, CourseUpdateDTO> {
 	execute(data: CourseProperties): CourseUpdateDTO {

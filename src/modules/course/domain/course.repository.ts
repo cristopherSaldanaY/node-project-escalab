@@ -1,6 +1,7 @@
 import { Result } from 'neverthrow'
-import Course, { CourseUpdate } from './course'
+import Course from './course'
 import { CourseNotFoundException } from './exceptions/course.exception'
+import { CourseUpdate } from './interfaces/courseUpdate.interface'
 
 export interface CourseRepository {
 	insert(course: Course): Promise<Course>

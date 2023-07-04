@@ -1,27 +1,27 @@
-import Course, { CourseUpdate } from '../domain/course';
+import Course from '../domain/course'
 import { CourseRepository } from '../domain/course.repository'
+import { CourseUpdate } from '../domain/interfaces/courseUpdate.interface'
 
 export default class CourseApplication {
 	constructor(private readonly courseRepository: CourseRepository) {}
 
-
-	insert(course: Course){
+	insert(course: Course) {
 		return this.courseRepository.insert(course)
 	}
 
-	list(){
+	list() {
 		return this.courseRepository.list()
 	}
 
-	listOne(guid: string){
+	listOne(guid: string) {
 		return this.courseRepository.listOne(guid)
 	}
 
-	update(guid: string, course: Partial<CourseUpdate>){
+	update(guid: string, course: Partial<CourseUpdate>) {
 		return this.courseRepository.update(guid, course)
 	}
 
-	delete(guid: string){
+	delete(guid: string) {
 		return this.courseRepository.delete(guid)
 	}
 }

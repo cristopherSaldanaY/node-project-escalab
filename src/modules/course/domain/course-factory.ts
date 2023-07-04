@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import Course, { CourseProperties } from './course'
+import Course from './course'
 import {
 	CourseDescriptionLengthInvalidException,
 	CourseDescriptionRequiredException,
@@ -8,6 +8,7 @@ import {
 	CourseTechnologyRequiredException,
 } from './exceptions/course.exception'
 import { Result, err, ok } from 'neverthrow'
+import { CourseProperties } from './types/courseProperties.type'
 
 export type CourseResult = Result<
 	Course,

@@ -1,9 +1,10 @@
 import DatabaseBootstrap from '../../../bootstrap/database.bootstrap'
-import Course, { CourseUpdate } from '../domain/course'
+import Course from '../domain/course'
 import { CourseRepository } from '../domain/course.repository'
 import { CourseEntity } from './course.entity'
 import { CourseNotFoundException } from '../domain/exceptions/course.exception'
 import { err, ok, Result } from 'neverthrow'
+import { CourseUpdate } from '../domain/interfaces/courseUpdate.interface'
 
 export default class CourseInfraestructure implements CourseRepository {
 	async insert(course: Course): Promise<Course> {
