@@ -10,7 +10,7 @@ export class CourseListMapping extends DTO<CourseProperties[], CourseListDTO> {
 				description: course.description,
 				difficult: course.difficulty,
 				technology: course.technology,
-				guid: course.guid,
+				guid: course.guid
 			}
 		})
 	}

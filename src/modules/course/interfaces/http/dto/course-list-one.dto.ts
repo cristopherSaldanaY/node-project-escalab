@@ -10,6 +10,7 @@ export class CourseListOneMapping extends DTO<CourseProperties, CourseListOneDTO
 			difficult: data.difficulty,
 			technology: data.technology,
 			guid: data.guid,
+			active: data.active
 		}
 	}
 }

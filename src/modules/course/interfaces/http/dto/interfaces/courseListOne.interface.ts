@@ -4,4 +4,5 @@ export interface CourseOneDTO {
 	difficult: string
 	technology: string
 	guid: string
+	active: boolean
 }
