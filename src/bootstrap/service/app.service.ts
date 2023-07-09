@@ -14,7 +14,7 @@ export class AppService {
 			username: process.env.DB_USER || 'adminUser',
 			password: process.env.DB_PASS || '123456',
 			database: process.env.DB_NAME || 'bddnodeproject',
-			//synchronize: process.env.DB_SYNC === 'true' ? true : false,
+			synchronize: process.env.DB_SYNC === 'true' ? true : false,
 			logging: process.env.DB_LOGG == 'true' ? true : false,
 		}
 	}

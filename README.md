@@ -33,17 +33,23 @@ Este proyecto es una aplicación Node.js que utiliza una arquitectura hexagonal 
 ### 4. Construir el ambiente productivo
 	yarn run build
 
-### 5. Construir la imagen Docker
-	docker build -t node-project:1.0.0 .
+### 5. Construir la imagen de la app con Docker
+	docker build -t <nombre-imagen>:<version> .
+Reemplaza <nombre-imagen> con el nombre que deseas darle a la imagen y <version> con la versión que deseas asignar.
 
 ### 6. Crear la red Docker
-	docker network create node-project-net
+	docker network create <nombre-red>
+Reemplaza <nombre-red> con el nombre que deseas darle a la red Docker.
 
 ### 7. Conectar la base de datos a la red
-	docker network connect node-app-net cont-mysqlserver-project
+	docker network connect <nombre-red> <nombre-contenedor-mysql>
+
+Reemplaza <nombre-red> con el nombre de la red Docker que creaste en el paso anterior y <nombre-contenedor-mysql> con el nombre del contenedor MySQL que se creó en el paso 2.
 
 ### 8. Crear el contenedor con la imagen del proyecto
-	docker run -d --name node-project-container -p 3000:3000 -e DB_HOST=cont-mysqlserver-project -e DB_PORT=3306 --network node-project-net node-project:1.0.0
+	docker run -d --name <nombre-contenedor> -p 3000:3000 -e DB_HOST=<nombre-contenedor-mysql> -e DB_PORT=3306 -e DB_SYNC=true --network <nombre-red> <nombre-imagen>:<version>
+
+Reemplaza <nombre-contenedor> con el nombre que deseas darle al contenedor.
 
 ## Prueba de la aplicación
 
@@ -63,8 +69,9 @@ Cuerpo de la solicitud:
 ### Ruta GET: http://localhost:3000/course/list
 ### Ruta GET: http://localhost:3000/course/listOne/guid
 ### Ruta PUT: http://localhost:3000/course/update/guid
+### Ruta DELETE: http://localhost:3000/course/delete/guid
 
-Cuerpo de la solicitud:
+Cuerpo de la solicitud para update:
 
 ```json
 {
@@ -75,5 +82,5 @@ Cuerpo de la solicitud:
 }
 ```
 
-### Ruta DELETE: http://localhost:3000/course/delete/guid
-Reemplaza "guid" con un identificador válido en las rutas PUT y DELETE.
+
+Reemplaza "guid" con un identificador válido en las rutas GET, PUT y DELETE.
